@@ -28,8 +28,10 @@ import pickle
 #meta_df = pd.read_csv('ptb_metadata.csv')
 meta_df = pd.read_csv('https://raw.githubusercontent.com/Melanie94480/heartbeat/refs/heads/main/ptb_metadata.csv')
 
-with open("all_signals_20s.pkl", "rb") as f:
-    all_signals_20s = pickle
+file_id = "15fhspnOZIBYJGucIXRlWRWjYCGQEkWdf"
+url = f"https://drive.google.com/uc?id={file_id}"
+response = requests.get(url)
+all_signals_20s = pickle.load(io.BytesIO(response.content))
     
     
 st.sidebar.title("Navigation des deux datasets : PTB & MITBIH")
@@ -848,3 +850,4 @@ if page == "Modélisation" :
         st.write("Classe vraie :", int(classe_origine))
 
         st.write("Classe prédite :", int(pred), "-", noms_classes[int(pred)])
+
