@@ -8,6 +8,7 @@ import seaborn as sns
 import re
 import scipy.signal as sp
 import requests
+import io
 
 import torch
 import torch.nn as nn
@@ -851,5 +852,6 @@ if page == "Modélisation" :
         st.write("Classe vraie :", int(classe_origine))
 
         st.write("Classe prédite :", int(pred), "-", noms_classes[int(pred)])
+
 
 
